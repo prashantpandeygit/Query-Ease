@@ -5,6 +5,10 @@ import os
 import tempfile
 from sql import *
 from config import generate_sql_query
+import requests
+import threading
+import time
+from datetime import datetime
 
 page_bg_img = '''
 <style>
@@ -24,6 +28,20 @@ page_bg_img = '''
 </style>
 '''
 st.markdown(page_bg_img, unsafe_allow_html=True)
+
+def keep_alive():
+    while True:
+        try:
+            url = "https://eda-webapp-603r.onrender.com"
+            response = requests.get(url)
+            current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            print(f"[{current_time}] Keep-alive ping sent. Status: {response.status_code}")
+        except Exception as e:
+            print(f"[{datetime.now()}] Ping failed: {str(e)}")
+        time.sleep(840)
+        
+keep_alive_thread = threading.Thread(target=keep_alive, daemon=True)
+keep_alive_thread.start()
 
 def main():
     st.title("Query Ease")
