@@ -44,7 +44,7 @@ keep_alive_thread = threading.Thread(target=keep_alive, daemon=True)
 keep_alive_thread.start()
 
 def main():
-    st.title("Query Ease")
+    st.title("QueryEase")
     st.write('-------')
 
     db_option = st.radio("Choose a database option:", ("Use test database", "Upload your own database"))
