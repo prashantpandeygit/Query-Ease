@@ -4,7 +4,7 @@ import google.generativeai as genai
 import streamlit as st
 load_dotenv()
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
-model = genai.GenerativeModel('gemini-pro')
+model = genai.GenerativeModel('gemini-1.5-flash-latest')
 
 def generate_sql_query(prompt, table_info):
     system_prompt = f"""You are an AI assistant that generates SQL queries based on natural language prompts.
