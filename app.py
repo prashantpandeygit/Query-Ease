@@ -32,7 +32,7 @@ st.markdown(page_bg_img, unsafe_allow_html=True)
 def keep_alive():
     while True:
         try:
-            url = "https://query-ease-0s0l.onrender.com/"
+            url = "https://query-ease-w0gl.onrender.com"
             response = requests.get(url)
             current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             print(f"[{current_time}] Keep-alive ping sent. Status: {response.status_code}")
